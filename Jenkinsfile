@@ -16,7 +16,9 @@ pipeline {
     stages {
        stage('shの動作確認') {
             steps {
-                bat '"C:/Program Files/Git/bin/sh.exe" --version'
+               @echo off
+                "C:/Program Files/Git/bin/sh.exe" practice.sh "%SHELL_MODE%"
+                exit /b %ERRORLEVEL%
             }
         }
         stage('ビルド・テスト') {
