@@ -7,6 +7,11 @@ pipeline {
             defaultValue: false,
             description: 'ビルド後にアプリを実行する'
         )
+         choice(
+            name: 'SHELL_MODE',
+            choices: ['success', 'failure', 'invalid'],
+            description: 'シェルの終了パターン'
+        )
     }
     stages {
        stage('shの動作確認') {
