@@ -9,7 +9,11 @@ pipeline {
         )
     }
     stages {
-
+       stage('shの動作確認') {
+            steps {
+                bat '"C:/Program Files/Git/bin/sh.exe" --version'
+            }
+        }
         stage('ビルド・テスト') {
             steps {
                 bat 'mvn -B clean package'
@@ -33,6 +37,7 @@ pipeline {
                 archiveArtifacts artifacts: 'target/*.jar'
             }
         }
+
     }
             post {
             always {
